@@ -139,7 +139,10 @@ p { margin-bottom: 1rem; }
 
 .nav-list li {
     margin-left: 2rem;
+    
 }
+
+
 
 .nav-list a.active {
     font-weight: 600;
@@ -973,14 +976,18 @@ p { margin-bottom: 1rem; }
 
 .footer ul li {
     margin-bottom: 0.8rem;
+   
 }
 
 .footer ul li a {
     color: #ffffff;
+    transition: all 0.3s ease;
+     display:inline-block;
 }
 
 .footer ul li a:hover {
     color:#FDD9CE;
+    transform: translateY(-4px);
 }
 
 .footer-col.contact-col li {
