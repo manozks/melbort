@@ -21,11 +21,11 @@
     <header class="header">
         <div class="container header-container">
             <a href="#" class="logo">
-                <img src="images/logo.png" alt="Melbote Logo">
+                <img src="images/logo.png" alt="Melbote">
             </a>
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#partners">Partners</a></li>
@@ -43,8 +43,7 @@
     <section id="home" class="hero">
           <div class="video-container">
             <video autoplay muted loop playsinline poster="hero-section.jpg">
-                <source src="images/melbote.mp4" type="video/mp4">
-                Your browser does not support the video tag.
+                <source src="images/melbote.mp4" type="video/mp4">              
             </video>
         </div>
         <div class="hero-overlay"></div>
@@ -225,7 +224,24 @@
         </div>
     </footer>
 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    // 1. Select all the links inside the nav list
+    const navLinks = document.querySelectorAll('.nav-list a');
 
+    // 2. Loop through each link to add a click event listener
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            
+            // Step A: Remove the 'active' class from ALL links
+            navLinks.forEach(nav => nav.classList.remove('active'));
+
+            // Step B: Add the 'active' class to the CLICKED link
+            this.classList.add('active');
+        });
+    });
+});
+</script>
 
 <script>
 document.querySelectorAll('.hero-dot').forEach(dot => {
