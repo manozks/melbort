@@ -228,7 +228,9 @@ p { margin-bottom: 1rem; }
 .hero-content {
     position: relative;
     z-index: 1;
-    max-width: 900px;
+    max-width: 600px;
+    text-align: left;
+   
 }
 
 .hero-title {
@@ -1126,4 +1128,12 @@ p { margin-bottom: 1rem; }
     .footer-col.contact-col li {
         justify-content: center;
     }
+    .hero-content {
+  
+    max-width: 320px;
+    text-align: left;
+   
 }
+}
+
+
