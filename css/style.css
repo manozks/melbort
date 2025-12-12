@@ -148,7 +148,8 @@ p { margin-bottom: 1rem; }
     font-weight: 600;
     color:#ffffff;
     position: relative;   
-    background-color: var(--primary-color);
+    background-color:#70361F;
+    border-radius:30px;
     padding: 10px 20px;
     transition: width 0.4s ease-in-out;
 }
@@ -212,23 +213,26 @@ p { margin-bottom: 1rem; }
 .video-container video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures video covers the area without stretching */
+    object-fit: cover;
 }
 
+/* --- Overlay --- */
+/* Updated to match the "Melbote" brand red/ochre overlay */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-     background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
-    /* background: rgba(0, 0, 0, 0.6); */ /* Dark overlay for readability */
+    /* Gradient from dark red/ochre to black for text readability */
+   background: linear-gradient(to bottom, rgba(109, 36, 24, 0.7), rgba(50, 15, 10, 0.4));
+    z-index: 1;
 }
 
 .hero-content {
     position: relative;
     z-index: 1;
-    max-width: 600px;
+    max-width: 900px;
     text-align: left;
    
 }
@@ -240,10 +244,14 @@ p { margin-bottom: 1rem; }
 
 }
 
-.hero-description {
+.hero-description, .hero-ready-text {
     font-size: 1.8rem;
     margin-bottom: 2rem;
      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.hero-ready-text{
+    color: #EBE0C2;
 }
 
 /* Animated Dot Style */
@@ -355,6 +363,7 @@ p { margin-bottom: 1rem; }
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 4px solid rgb(197, 143, 56);
     padding: 40px 30px;
     border-radius: 4px;
     transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
@@ -378,10 +387,10 @@ p { margin-bottom: 1rem; }
 
 /* --- HOVER STATE (Show & Blink) --- */
 .service-card:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(228, 150, 5, 0.2);
     transform: translateY(-8px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    border-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(155, 80, 11, 0.4);
 }
 
 .service-card:hover::after {
@@ -608,9 +617,7 @@ p { margin-bottom: 1rem; }
     /* --- BACKGROUND STYLING --- */
     /* Layer 1: Dark Gradient Overlay (Left Grey to Right Black) */
     /* Layer 2: Background Image (Opera House Art) */
-   background: 
-        linear-gradient(90deg, rgba(100, 100, 100, 0.9) 0%, rgba(30, 30, 30, 0.85) 40%, rgba(0, 0, 0, 0.6) 100%),
-        url('../images/network-bg.jpg'); /* Placeholder for Opera House image */
+   background:url('../images/network-bg.jpg'); /* Placeholder for Opera House image */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -949,12 +956,13 @@ p { margin-bottom: 1rem; }
 
 /* --- Footer --- */
 .footer {
-    background:
-        url('../images/footer-bg.jpg'); 
+    background:url('../images/footer-bg.jpg'); 
     background-size: cover;
     color: #fff;
     padding: 4rem 0 1rem;
-    margin-top: 10px;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+     margin-top: 10px;
 }
 
 .footer-container {
@@ -967,7 +975,7 @@ p { margin-bottom: 1rem; }
 .footer-logo img {
     height: 50px;
     margin-bottom: 1.5rem;
-   /*  filter: brightness(0) invert(1); */ /* Make logo white */
+    filter: brightness(0) invert(1); /* Make logo white */
 }
 
 .footer h3 {
@@ -988,7 +996,7 @@ p { margin-bottom: 1rem; }
 }
 
 .footer ul li a:hover {
-    color:#FDD9CE;
+    color:#EBDFC0;
     transform: translateY(-4px);
 }
 
@@ -1002,7 +1010,7 @@ p { margin-bottom: 1rem; }
     margin-top: 5px;
 }
 .footer__leading__txt{
-    color: #FDD9CE;
+    color: #EBDFC0;
 }
 .footer-col .btn.btn-primary.email{
     padding: 10px 20px;
@@ -1011,9 +1019,9 @@ p { margin-bottom: 1rem; }
 .footer-bottom {
     text-align: center;
     padding-top: 1rem;
-    border-top: 1px solid #581603;
+    border-top: 1px solid #39150D;
     font-size: 1rem;
-    color: #FAAC96;
+    color: #EBDFC0;
 }
 
 /* --- Animations (CSS) --- */
@@ -1128,12 +1136,6 @@ p { margin-bottom: 1rem; }
     .footer-col.contact-col li {
         justify-content: center;
     }
-    .hero-content {
-  
-    max-width: 320px;
-    text-align: left;
-   
-}
 }
 
 
