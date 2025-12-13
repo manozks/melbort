@@ -335,24 +335,7 @@ p { margin-bottom: 1rem; }
     gap: 30px;
 }
 
-/* Define the blinking pulse effect */
-@keyframes dot-blink {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-        box-shadow: 0 0 10px rgba(0, 229, 255, 0.8);
-    }
-    50% {
-        opacity: 0.4;
-        transform: scale(0.8);
-        box-shadow: 0 0 2px rgba(0, 229, 255, 0.2);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-        box-shadow: 0 0 10px rgba(0, 229, 255, 0.8);
-    }
-}
+
 
 /* =========================================
    SERVICE CARD STYLES
@@ -371,33 +354,68 @@ p { margin-bottom: 1rem; }
     overflow: hidden; /* Ensures the glow doesn't spill out messy */
 }
 
-/* --- THE DOT (Hidden by default) --- */
+/* =========================================
+   ANIMATION KEYFRAMES (Twinkle Effect)
+   ========================================= */
+@keyframes sparkle-1 {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.5); }
+}
+
+@keyframes sparkle-2 {
+    0%, 100% { opacity: 0.3; transform: scale(0.5) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.2) rotate(45deg); }
+}
+
+/* --- STAR 1 (Small, Fast Blink) --- */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: 35px; /* Offset to the left of the main star */
+    width: 8px;
+    height: 8px;
+    background-color: #eeeeee;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.4s ease;
+}
+
+/* --- STAR 2 & 3 (Main Star + Shadow Clone) --- */
 .service-card::after {
     content: '';
     position: absolute;
-    top: 20px;       /* Distance from top */
-    right: 20px;     /* Distance from right */
-    width: 12px;     /* Size of the dot */
-    height: 12px;
-    background-color: #00e5ff; /* Electric Cyan Color */
-    border-radius: 50%;        /* Make it a circle */
-    opacity: 0;                /* Invisible by default */
-    transform: scale(0);       /* Scaled down by default */
-    transition: all 0.3s ease; /* Smooth appearance */
+    top: 20px;
+    right: 20px;
+    width: 14px;
+    height: 14px;
+    background-color: #eeeeee;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    
+    /* This creates the 3rd star as a "reflection" to the bottom-left */
+    filter: drop-shadow(-15px 20px 0 rgba(238, 238, 238, 0.6));
+    
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.4s ease 0.1s; /* Slight delay on appearance */
 }
 
-/* --- HOVER STATE (Show & Blink) --- */
-.service-card:hover {
-    background: rgba(228, 150, 5, 0.2);
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    border-color: rgba(155, 80, 11, 0.4);
+/* --- HOVER STATE (Trigger Animations) --- */
+
+/* Animate the small star */
+.service-card:hover::before {
+    opacity: 1;
+    transform: scale(1);
+    animation: sparkle-1 1s infinite ease-in-out;
 }
 
+/* Animate the big star cluster */
 .service-card:hover::after {
-    opacity: 1;                /* Make visible */
-    transform: scale(1);       /* Scale to full size */
-    animation: dot-blink 1.2s infinite ease-in-out; /* Trigger animation */
+    opacity: 1;
+    transform: scale(1);
+    animation: sparkle-2 1.5s infinite ease-in-out reverse; /* Different speed & direction */
 }
 
 .service-card h3 {
