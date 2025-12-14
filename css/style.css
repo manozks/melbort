@@ -354,6 +354,14 @@ p { margin-bottom: 1rem; }
     overflow: hidden; /* Ensures the glow doesn't spill out messy */
 }
 
+/* --- HOVER STATE (Show & Blink) --- */
+.service-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
 /* =========================================
    ANIMATION KEYFRAMES (Twinkle Effect)
    ========================================= */
