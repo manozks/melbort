@@ -313,13 +313,83 @@ p { margin-bottom: 1rem; }
     padding-right: 20px;
 }
 
-.services-header h2 {
-    font-size: 3rem;
+
+/* =========================================
+   STAR ANIMATIONS
+   ========================================= */
+
+/* Animation 1: Simple pulse */
+@keyframes twinkle-1 {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.5); }
+}
+
+/* Animation 2: Rotate and pulse (adds variety) */
+@keyframes twinkle-2 {
+    0%, 100% { opacity: 0.4; transform: scale(0.5) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.1) rotate(45deg); }
+}
+
+/* =========================================
+   HEADING STYLES
+   ========================================= */
+
+.services-header h2,
+.about-left h2,
+.network-left h2 {
+    position: relative;    /* Essential for positioning stars relative to text */
+    display: inline-block; /* Ensures the container wraps the text tight */
+     font-size: 3rem;
     font-weight: 400;
     line-height: 1.2;
     position: sticky;
     top: 100px;
     color: #fff;
+}
+
+/* --- CLUSTER 1 (Top Right) --- */
+/* Creates 1 main star + 1 shadow clone = 2 Stars */
+.services-header h2::after,
+.about-left h2::after,
+.network-left h2::after {
+    content: '';
+    position: absolute;
+    top: 5px;             /* Adjust vertical position */
+    right: -25px;          /* Move to the right of the text */
+    width: 14px;           /* Size of the star */
+    height: 14px;
+    background-color: #eeeeee; /* Electric Cyan */
+    
+    /* Shape: 4-point star */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    
+    /* Clone: Creates a second, fainter star nearby */
+    filter: drop-shadow(15px -10px 0 rgba(238, 238, 238, 0.6));
+    
+    animation: twinkle-1 2s infinite ease-in-out;
+}
+
+/* --- CLUSTER 2 (Top Left / Floating) --- */
+/* Creates 1 main star + 2 shadow clones = 3 Stars */
+.services-header h2::before,
+.about-left h2::before,
+.network-left h2::before {
+    content: '';
+    position: absolute;
+    top: -15px;            /* Adjust vertical position */
+    left: -10px;           /* Move to the left of the text */
+    width: 10px;           /* Smaller star size */
+    height: 10px;
+    background-color: #eeeeee;
+    
+    /* Shape: 5-point star */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    
+    /* Clones: Creates two more stars at different positions */
+    filter: drop-shadow(-15px 20px 0 rgba(238, 229, 255, 0.5)) 
+            drop-shadow(10px -25px 0 rgba(238, 229, 255, 0.3));
+            
+    animation: twinkle-2 3s infinite ease-in-out reverse;
 }
 
 /* --- RIGHT SECTION (75%) --- */
