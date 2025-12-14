@@ -292,7 +292,7 @@ p { margin-bottom: 1rem; }
     min-height: 100vh;
     padding: 80px 0;
     background:url('../images/services-bg.jpg'); 
-    background-size: cover;
+    background-size:100%;
     background-position: center;
     background-attachment: fixed;
     margin-top: 10px;
@@ -512,7 +512,7 @@ p { margin-bottom: 1rem; }
     align-items: center;   
     background:
         url('../images/about-bg.jpg'); 
-    background-size: cover;
+    background-size: 100%;
     background-position: center;
     background-attachment: fixed; /* Parallax effect */
      margin-top: 10px;
@@ -547,22 +547,28 @@ p { margin-bottom: 1rem; }
     max-width: 75%;
 }
 
-.text-block {
+.text-block,
+.text-block-footer {
     background: rgba(0, 0, 0, 0.3); /* Semi-transparent dark background */
     padding: 40px;
     border-left: 4px solid #c58f38; /* Ochre accent border */
     border-radius: 4px;
     backdrop-filter: blur(3px); /* Subtle blur effect */
 }
+.text-block-footer{
+    border-left: 1px solid #c58f38;
+    backdrop-filter: blur(2px);
+}
 
-.text-block p {
+.text-block p, .text-block-footer p {
     margin-bottom: 20px;
     font-size: 1.1rem;
     opacity: 0.9;
      color: #ffffff;
 }
 
-.text-block p:last-child {
+.text-block p:last-child,
+.text-block-footer p:last-child {
     margin-bottom: 0;
 }
 
@@ -637,7 +643,7 @@ p { margin-bottom: 1rem; }
     /* Layer 1: Dark Gradient Overlay (Left Grey to Right Black) */
     /* Layer 2: Background Image (Opera House Art) */
    background:url('../images/network-bg.jpg'); /* Placeholder for Opera House image */
-    background-size: cover;
+    background-size: 100%;
     background-position: center;
     background-attachment: fixed;
     margin-top: 10px;
@@ -976,7 +982,7 @@ p { margin-bottom: 1rem; }
 /* --- Footer --- */
 .footer {
     background:url('../images/footer-bg.jpg'); 
-    background-size: cover;
+    background-size:100%;
     color: #fff;
     padding: 4rem 0 1rem;
     background-position: center;
