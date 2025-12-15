@@ -1261,4 +1261,40 @@ p { margin-bottom: 1rem; }
     }
 }
 
+/* =========================================
+   1. DEFINE THE ANIMATION
+   ========================================= */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* Start 30px lower */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);    /* End in normal position */
+    }
+}
 
+/* =========================================
+   2. APPLY TO TEXT
+   ========================================= */
+
+.hero-description {
+    opacity: 0; /* Start invisible */
+    
+    /* Apply the animation: name | duration | timing | fill-mode */
+    animation: fadeInUp 1s ease-out forwards;
+    
+    /* Optional: Delay the first paragraph slightly so the title loads first */
+    animation-delay: 0.5s;
+}
+
+/* =========================================
+   3. STAGGER THE SECOND PARAGRAPH
+   ========================================= */
+
+/* Targeted via the specific class you added */
+.hero-ready-text {
+    /* Wait longer (1.2s) before starting, creating a sequence */
+    animation-delay: 1.2s; 
+}
