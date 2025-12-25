@@ -131,7 +131,7 @@ p { margin-bottom: 1rem; }
 }
 
 .logo img {
-    height: 40px; /* Adjust as needed */
+    height: 44px; /* Adjust as needed */
 }
 
 .nav-list {
@@ -284,7 +284,15 @@ p { margin-bottom: 1rem; }
     animation-delay: 1s;
 }
 
-
+.services-section,
+.about-section,
+.network-section,
+.footer
+ {    
+    margin-top:0px;
+    border-top: 1px solid #c58f38;
+    
+}
 
 /* --- Services Section --- */
 .services-section {
@@ -292,10 +300,9 @@ p { margin-bottom: 1rem; }
     min-height: 100vh;
     padding: 80px 0;
     background:url('../images/services-bg.jpg'); 
-    background-size:100%;
+   background-size:cover;
     background-position: center;
     background-attachment: fixed;
-    margin-top: 10px;
 }
 
 
@@ -313,6 +320,19 @@ p { margin-bottom: 1rem; }
     padding-right: 20px;
 }
 
+.service-icon {
+    font-size: 2.5rem;      /* Adjust size of the icon */
+    color: #C58F38;         /* Change this to your brand's primary color */
+    margin-bottom: 15px;    /* Space between icon and the title */
+    display: inline-block;
+}
+
+/* Optional: Add a hover effect */
+.service-card:hover .service-icon {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+    color: #916928;         /* Darker shade on hover */
+}
 
 /* =========================================
    STAR ANIMATIONS
@@ -605,15 +625,13 @@ p { margin-bottom: 1rem; }
 /* --- About Section --- */
 .about-section {
     padding: 80px 0;
-    min-height: 600px; /* Ensure some height */
-    display: flex;
+       display: flex;
     align-items: center;   
     background:
         url('../images/about-bg.jpg'); 
-    background-size: 100%;
+   background-size:cover;
     background-position: center;
     background-attachment: fixed; /* Parallax effect */
-     margin-top: 10px;
 }
 
 
@@ -741,10 +759,9 @@ p { margin-bottom: 1rem; }
     /* Layer 1: Dark Gradient Overlay (Left Grey to Right Black) */
     /* Layer 2: Background Image (Opera House Art) */
    background:url('../images/network-bg.jpg'); /* Placeholder for Opera House image */
-    background-size: 100%;
+    background-size:cover;
     background-position: center;
     background-attachment: fixed;
-    margin-top: 10px;
 }
 
 
@@ -1080,12 +1097,11 @@ p { margin-bottom: 1rem; }
 /* --- Footer --- */
 .footer {
     background:url('../images/footer-bg.jpg'); 
-    background-size:100%;
+    background-size:cover;
     color: #fff;
-    padding: 4rem 0 1rem;
+    padding: 4rem 0 0rem;
     background-position: center;
-    background-attachment: fixed; /* Parallax effect */
-     margin-top: 10px;
+    background-attachment: fixed; /* Parallax effect */    
 }
 
 .footer-container {
@@ -1140,11 +1156,13 @@ p { margin-bottom: 1rem; }
 }
 
 .footer-bottom {
-    text-align: center;
-    padding-top: 1rem;
-    border-top: 1px solid #39150D;
+    text-align: center;   
     font-size: 1rem;
     color: #EBDFC0;
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent dark background */
+    padding:22px 20px 10px;
+    border-top: 1px solid #c58f38; /* Ochre accent border */
+    backdrop-filter: blur(1px); /* Subtle blur effect */
 }
 
 /* --- Animations (CSS) --- */
