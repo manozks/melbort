@@ -210,6 +210,7 @@ p { margin-bottom: 1rem; }
     z-index: 1;
     max-width: 900px;
     text-align: left;
+    padding-bottom: 30px;
    
 }
 
@@ -221,8 +222,8 @@ p { margin-bottom: 1rem; }
 }
 
 .hero-description, .hero-ready-text {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
@@ -1229,6 +1230,7 @@ p { margin-bottom: 1rem; }
     /* Hero */
     .hero-title { font-size: 2rem; }
     .hero-description { font-size: 1rem; }
+ 
 
     /* Services */
     .services-grid {
@@ -1290,4 +1292,35 @@ p { margin-bottom: 1rem; }
 .hero-ready-text {
     /* Wait longer (1.2s) before starting, creating a sequence */
     animation-delay: 1.2s; 
+}
+
+
+.masked-text {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-image: url('https://images.unsplash.com/photo-1732535725600-f805d8b33c9c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+    background-size: 200%; /* Enlarged for smooth animation */
+    background-position: 0 50%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-background 5s infinite alternate linear;
+    line-height: 1.2;
+}
+
+@keyframes animate-background {
+    0% {
+        background-position: 0 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+   /* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    .masked-text{font-size: 2.5rem;}
+
+
 }
