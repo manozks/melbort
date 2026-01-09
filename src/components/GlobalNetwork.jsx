@@ -1,61 +1,76 @@
 import React from 'react';
 import globalBg from '../assets/global-bg.png';
-import techRydeLogo from '../assets/techryde-logo.png';
-import emultitechLogo from '../assets/emultitech-logo.png';
+import techRyde from '../assets/techryde-logo.png';
+import emultitech from '../assets/emultitech-logo.png';
 
 const GlobalNetwork = () => {
   return (
-    <section id="partners" className="relative bg-[#f9f9f9] py-20 overflow-hidden">
+    <section id="partners" className="relative bg-[#f9f9f9] py-24 overflow-hidden">
       
-      {/* --- BACKGROUND IMAGE (Centered) --- */}
-      {/* Positioned absolute in the center, low opacity to sit behind text */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-5xl z-0 opacity-100 pointer-events-none">
-        <img src={globalBg} alt="Global Network" className="w-full max-w-5xl h-auto object-contain opacity-20" // Adjusted opacity so text is readable
+      {/* --- BACKGROUND IMAGE --- */}
+      {/* Centered absolutely, sitting behind the content */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl z-0 pointer-events-none opacity-30">
+        <img src={globalBg} alt="Global Network" 
+          className="w-full max-w-2xl h-auto object-contain pb-10" 
         />
       </div>
 
-      {/* --- CONTENT --- */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        
-        {/* Title */}
-        <h2 className="text-4xl md:text-5xl mb-6">
-          <span className="font-serif text-[#d4af37]">Our Global </span>
-          <span className="font-serif  text-black-900">Network</span>
-        </h2>
-
-        {/* Description */}
-        <p className="text-black-600 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
-          Melbote leverages the strength and innovation of our pan-APAC technology leaders to deliver unparalleled solutions.
-        </p>
-
-        {/* --- LOGOS SECTION --- */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           
-          {/* Logo 1: TechRyde */}
-          <div className="h-12 md:h-16 flex items-center justify-center">
-            <a href="https://www.techryde.com" target="_blank"  rel="noopener noreferrer"
-    className="hover:opacity-80 transition-opacity" 
-  >
-    <img src={techRydeLogo} alt="TechRyde" className="h-full w-auto" />
-  </a>
-           
+          {/* --- LEFT SECTION: Title --- */}
+          <div className="lg:w-4/12 text-left">
+            <h2 className="text-4xl md:text-4xl font-serif text-[#d4af37] mb-2 leading-none">Our</h2>
+                <h2 className="text-4xl md:text-4xl font-serif text-black-700 tracking-tight">Global Network</h2>
+                <div className="w-20 h-1.5 bg-[#d4af37] mt-6 rounded-full opacity-80 mx-auto lg:mx-0"></div>
           </div>
 
-          {/* Vertical Divider (Hidden on mobile, visible on desktop) */}
-          <div className="hidden md:block w-px h-12 bg-[#333333]"></div>
-
-          {/* Logo 2: eMultiTech */}
-          <div className="h-12 md:h-16 flex items-center justify-center">
-                     <a href="https://www.emultitechsolution.com" target="_blank"  rel="noopener noreferrer"
-    className="hover:opacity-80 transition-opacity" 
-  >
-    <img src={emultitechLogo} alt="eMultiTech" className="h-full w-auto" />
-  </a>
+          {/* --- RIGHT SECTION: Description & Logos --- */}
+          <div className="lg:w-8/12 ">
             
+            {/* Description Text */}
+            <p className="text-black-600 text-lg mb-10 leading-relaxed max-w-2xl">
+              Melbote leverages the strength and innovation of our pan-APAC technology leaders to deliver unparalleled solutions.
+            </p>
+
+            {/* Logos Row */}
+            <div className="flex flex-col sm:flex-row items-center justify-start gap-8 sm:gap-12">
+              
+              {/* Logo 1: TechRyde */}
+              <a 
+                href="https://www.techryde.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
+                
+                <div className="flex items-center gap-2 h-full">
+                    <img src={techRyde} alt="TechRyde" className="h-[66px] w-[290px]" />
+                    
+                </div>
+              </a>
+
+              {/* Vertical Divider (Visible on Desktop) */}
+              <div className="hidden sm:block w-px h-12 bg-black-300"></div>
+
+              {/* Logo 2: MultiTech */}
+              <a 
+                href="https://www.multitech.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
+                
+                <div className="flex items-center gap-2 h-full">
+                    <img src={emultitech} alt="Multitech" className="h-[42px] w-[131px]" />
+                    
+                </div>
+              </a>
+
+            </div>
           </div>
 
         </div>
-
       </div>
     </section>
   );

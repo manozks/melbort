@@ -14,8 +14,8 @@ const About = () => {
             <div className="lg:w-1/3 flex flex-col items-start relative">
               {/* Title Section */}
               <div className="mb-8 z-10 text-center lg:text-left w-full">
-               <h2 className="text-4xl md:text-5xl font-serif text-[#d4af37] mb-2 leading-none">About</h2>
-                <h2 className="text-4xl md:text-5xl font-serif text-black-700 tracking-tight">Melbote</h2>
+               <h2 className="text-4xl md:text-4xl font-serif text-[#d4af37] mb-2 leading-none">About</h2>
+                <h2 className="text-4xl md:text-4xl font-serif text-black-700 tracking-tight">Melbote</h2>
                 <div className="w-20 h-1.5 bg-[#d4af37] mt-6 rounded-full opacity-80 mx-auto lg:mx-0"></div>
               </div>
 
