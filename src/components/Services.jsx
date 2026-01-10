@@ -60,10 +60,7 @@ const Services = () => {
         <div className="lg:w-1/3 relative">
             <div className="sticky top-32">
               
-              {/* RESPONSIVE IMAGE LAYER 
-                 - Mobile: Centered behind text, fixed width (w-64)
-                 - Desktop (lg): Larger (w-[120%]), offset to the left (-left-10)
-              */}
+         
               <div className="absolute z-0 opacity-30 pointer-events-none
                 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64
                 lg:top-[-2.5rem] lg:left-[-2.5rem] lg:translate-x-0 lg:translate-y-0 lg:w-[120%]

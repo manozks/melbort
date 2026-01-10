@@ -1,16 +1,15 @@
 import React from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
 import logo from '../assets/logo.png';
+import footerBg from '../assets/footer-bg.png';
 
 const Footer = () => {
   return (
     <footer id="contact" className="bg-[#f9f9f9] pt-20 pb-4 border-t border-[#e2e2e2] relative overflow-hidden">
       
       {/* Background Pattern (Simulating the map texture) */}
-      <div className="absolute inset-0 pointer-events-none flex items-end justify-center opacity-[0.03]">
-        <div className="w-full h-full bg-[radial-gradient(circle,_#000_1px,_transparent_1px)] bg-[length:20px_20px]"></div>
-      </div>
-
+      
+    
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           
@@ -43,7 +42,15 @@ const Footer = () => {
 
           {/* 3. Contact Us */}
           <div>
-            <h5 className="font-bold text-gray-900 mb-6">Contact Us</h5>
+            <div className="absolute inset-x-0 top-0 flex justify-center z-0 pointer-events-none">
+        <img 
+          src={footerBg} 
+          alt="Footer" 
+          className="w-full max-w-2xl h-auto object-contain opacity-100" // translate-y moves it down slightly for that 'watermark' look
+        />
+      </div>
+           <div className="relative z-10">
+             <h5 className="font-bold text-gray-900 mb-6">Contact Us</h5>
             <ul className="space-y-4 text-sm text-gray-600">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-[#d4af37] mt-1 shrink-0" />
@@ -60,6 +67,7 @@ const Footer = () => {
                 <span>info@melbote.com</span>
               </li>
             </ul>
+           </div>
           </div>
 
           {/* 4. Inquiries */}

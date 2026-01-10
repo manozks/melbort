@@ -12,6 +12,17 @@ const About = () => {
             
             {/* --- LEFT COLUMN: Title & Image --- */}
             <div className="lg:w-1/3 flex flex-col items-start relative">
+
+             <div className="absolute z-0 pointer-events-none
+                top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64
+                lg:top-[-2.5rem] lg:left-[-2.5rem] lg:translate-x-0 lg:translate-y-0 lg:w-[120%]
+              ">
+                <img 
+                  src={aboutBg} 
+                  alt="Australian Kangaroo Art" 
+                  className="w-64 md:w-80 lg:w-full max-w-sm object-contain opacity-60" 
+                />
+              </div>
               {/* Title Section */}
               <div className="mb-8 z-10 text-center lg:text-left w-full">
                <h2 className="text-4xl md:text-4xl font-serif text-[#d4af37] mb-2 leading-none">About</h2>
@@ -19,21 +30,12 @@ const About = () => {
                 <div className="w-20 h-1.5 bg-[#d4af37] mt-6 rounded-full opacity-80 mx-auto lg:mx-0"></div>
               </div>
 
-              {/* Kangaroo Image 
-                  - Mobile: Smaller, centered
-                  - Desktop: Aligned left, sitting below title
-              */}
-              <div className="w-full flex justify-center lg:justify-start">
-                <img 
-                  src={aboutBg} 
-                  alt="Australian Kangaroo Art" 
-                  className="w-64 md:w-80 lg:w-full max-w-sm object-contain opacity-60" 
-                />
-              </div>
+            
+              
             </div>
 
             {/* --- RIGHT COLUMN: Text Content --- */}
-            <div className="lg:w-2/3 flex flex-col justify-center space-y-6 text-gray-600 leading-relaxed text-[15px] md:text-base font-light">
+            <div className="lg:w-2/3 flex flex-col justify-center space-y-6 text-black-600 leading-relaxed text-[15px] md:text-base font-light">
               <p>
                 Melbote is an IT professional services consulting company operating as the 
                 Australian subsidiary of a prominent pan-APAC technology leader. We are proud 
