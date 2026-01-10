@@ -64,7 +64,8 @@ const Services = () => {
               <div className="absolute z-0 opacity-30 pointer-events-none
                 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64
                 lg:top-[-2.5rem] lg:left-[-2.5rem] lg:translate-x-0 lg:translate-y-0 lg:w-[120%]
-              ">
+              " data-aos="zoom-in" 
+        data-aos-duration="1500">
                 <img 
                   src={serviceBg} 
                   alt="Background Pattern" 
@@ -73,7 +74,7 @@ const Services = () => {
               </div>
 
               {/* Text Content */}
-              <div className="relative z-10 text-center lg:text-left">
+              <div className="relative z-10 text-center lg:text-left" data-aos="fade-right">
                 <h2 className="text-4xl md:text-4xl font-serif text-[#d4af37] mb-2 leading-none">Our</h2>
                 <h2 className="text-4xl md:text-4xl font-serif text-black-700 tracking-tight">Services</h2>
                 <div className="w-20 h-1.5 bg-[#d4af37] mt-6 rounded-full opacity-80 mx-auto lg:mx-0"></div>
@@ -83,11 +84,17 @@ const Services = () => {
           </div>
 
           {/* Right Side: Grid */}
-          <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((s, index) => (
-              <ServiceCard key={index} {...s} />
-            ))}
-          </div>
+          <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8 z-10">
+  {services.map((s, index) => (
+    <div 
+      key={index}
+      data-aos="fade-up"
+      data-aos-delay={index * 100} // This creates a "staggered" effect (1st=0ms, 2nd=100ms, 3rd=200ms...)
+    >
+      <ServiceCard {...s} />
+    </div>
+  ))}
+</div>
           
         </div>
       </div>

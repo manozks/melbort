@@ -1,38 +1,36 @@
-import React, { useState } from 'react';
-import { Menu, X, Globe, Cloud, BarChart3, Code2, ShieldCheck, Server, MapPin, Phone, Mail } from 'lucide-react';
-import Header from './components/Header.jsx';
-import Hero from './components/Hero.jsx';
-import Services from './components/Services.jsx';
-import About from './components/About.jsx';
-import GlobalNetwork from './components/GlobalNetwork.jsx'; 
-import Footer from './components/Footer.jsx';
+import React, { useEffect } from 'react';
+// 1. Import AOS and its CSS
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-// --- SHARED COMPONENTS ---
-const Button = ({ children, className }) => (
-  <button className={`bg-[#d4af37] hover:bg-[#b5952f] text-white font-medium py-2 px-6 rounded-full transition-all duration-300 shadow-md ${className}`}>
-    {children}
-  </button>
-);
+// Import your components
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Services from './components/Services';
+import GlobalNetwork from './components/GlobalNetwork';
+import Footer from './components/Footer';
+import About from './components/About';
 
-const Section = ({ children, className = "" }) => (
-  <div className={`max-w-7xl mx-auto px-6 md:px-12 py-16 ${className}`}>
-    {children}
-  </div>
-);
+function App() {
+  // 2. Initialize AOS inside useEffect
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation speed (1000ms = 1s)
+      once: true,     // Animation happens only once (doesn't repeat on scroll up)
+      offset: 100,    // Trigger animation 100px before element is visible
+    });
+  }, []);
 
-
-
-
-// --- MAIN APP COMPONENT ---
-export default function App() {
   return (
-    <div className="font-sans text-gray-900 selection:bg-[#f9f9f9] selection:text-white">
+    <div className="font-sans text-gray-900 selection:bg-[#d4af37] selection:text-white">
       <Header />
       <Hero />
       <Services />
-      <About/>
+      <About />
       <GlobalNetwork />
       <Footer />
     </div>
   );
 }
+
+export default App;

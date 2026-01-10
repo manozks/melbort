@@ -16,12 +16,13 @@ const GlobalNetwork = () => {
              <div className="absolute z-0 pointer-events-none
                 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64
                 lg:top-[-2.5rem] lg:left-[-2.5rem] lg:translate-x-0 lg:translate-y-0 lg:w-[120%]
-              ">
+              " data-aos="zoom-in" 
+        data-aos-duration="1500">
         <img src={globalBg} alt="Global Network" 
           className="w-64 md:w-80 lg:w-full max-w-sm object-contain opacity-60" 
         />
       </div>
-        <div className="mb-8 z-10 text-center lg:text-left w-full">
+        <div className="mb-8 z-10 text-center lg:text-left w-full" data-aos="fade-right">
             <h2 className="text-4xl md:text-4xl font-serif text-[#d4af37] mb-2 leading-none">Our</h2>
                 <h2 className="text-4xl md:text-4xl font-serif text-black-700 tracking-tight">Global Network</h2>
                 <div className="w-20 h-1.5 bg-[#d4af37] mt-6 rounded-full opacity-80 mx-auto lg:mx-0"></div>
@@ -29,7 +30,7 @@ const GlobalNetwork = () => {
           </div>
 
           {/* --- RIGHT SECTION: Description & Logos --- */}
-          <div className="lg:w-8/12 bg-[#f9f9f9] rounded-[2rem] p-8 md:p-16 shadow-sm border border-[#e2e2e2] ">
+          <div className="lg:w-8/12 bg-[#f9f9f9] rounded-[2rem] p-8 md:p-16 shadow-sm border border-[#e2e2e2] " data-aos="fade-left" data-aos-delay="200">
             
             {/* Description Text */}
             <p className="text-black-600 font-bold text-center mb-10 text-lg leading-relaxed max-w-2xl">
