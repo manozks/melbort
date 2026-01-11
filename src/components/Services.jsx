@@ -61,9 +61,9 @@ const Services = () => {
             <div className="sticky top-32">
               
          
-              <div className="absolute z-0 opacity-30 pointer-events-none
+              <div className="absolute z-0 opacity-60 pointer-events-none
                 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64
-                lg:top-[-2.5rem] lg:left-[-2.5rem] lg:translate-x-0 lg:translate-y-0 lg:w-[120%]
+                lg:top-[-2.5rem] lg:left-[-2.5rem] lg:translate-x-0 lg:translate-y-0 lg:w-[120%] max-w-xs
               " >
                 <img 
                   src={serviceBg} 
