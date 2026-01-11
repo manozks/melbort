@@ -14,7 +14,7 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 pt-16 text-center">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-5 mb-6" data-aos="fade-up">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6" data-aos="fade-up">
           Leading the Digital <br className="hidden md:inline" />
           Transformation in Australia
         </h1>
