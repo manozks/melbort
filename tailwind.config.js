@@ -4,8 +4,13 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
-    extend: {},
+ theme: {
+    extend: {
+      fontFamily: {
+        // This overrides the default 'font-serif' to use your custom font first
+        serif: ['"Arno Pro"', 'Georgia', 'serif'],
+      },
+    },
   },
   plugins: [],
 }
