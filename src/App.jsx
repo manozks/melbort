@@ -22,7 +22,7 @@ function App() {
   }, []);
 
   return (
-    <div className="font-sans text-gray-900 selection:bg-[#d4af37] selection:text-white">
+    <div className="font-sans text-black-900 selection:bg-[#d4af37] selection:text-white overflow-x-hidden">
       <Header />
       <Hero />
       <Services />

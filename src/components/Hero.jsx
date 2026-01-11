@@ -5,15 +5,16 @@ const Hero = () => {
    return (
     <section className="relative bg-[#f9f9f9] pt-24 pb-24 md:pt-32 md:pb-32 overflow-hidden">
       {/* Background Map Image */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-90 pointer-events-none">
+      <div className="absolute inset-0 flex items-center justify-center opacity-100 pointer-events-none">
         {/* 2. USE THE VARIABLE HERE */}
-        <img src={heroBg} alt="map of Australia" className="w-full pt-20 max-w-lg h-auto object-contain" 
+        <img src={heroBg} alt="map of Australia" data-aos="zoom-in" 
+        data-aos-duration="1500"   className="w-full pt-20 max-w-lg h-auto object-contain" 
         />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6" data-aos="fade-up">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 pt-16 text-center">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6" data-aos="fade-up">
           Leading the Digital <br className="hidden md:inline" />
           Transformation in Australia
         </h1>

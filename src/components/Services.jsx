@@ -64,8 +64,7 @@ const Services = () => {
               <div className="absolute z-0 opacity-30 pointer-events-none
                 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64
                 lg:top-[-2.5rem] lg:left-[-2.5rem] lg:translate-x-0 lg:translate-y-0 lg:w-[120%]
-              " data-aos="zoom-in" 
-        data-aos-duration="1500">
+              " >
                 <img 
                   src={serviceBg} 
                   alt="Background Pattern" 

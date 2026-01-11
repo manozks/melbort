@@ -16,8 +16,7 @@ const GlobalNetwork = () => {
              <div className="absolute z-0 pointer-events-none
                 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64
                 lg:top-[-2.5rem] lg:left-[-2.5rem] lg:translate-x-0 lg:translate-y-0 lg:w-[120%]
-              " data-aos="zoom-in" 
-        data-aos-duration="1500">
+              ">
         <img src={globalBg} alt="Global Network" 
           className="w-64 md:w-80 lg:w-full max-w-sm object-contain opacity-60" 
         />
