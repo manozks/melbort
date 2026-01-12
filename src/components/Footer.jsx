@@ -36,7 +36,7 @@ const Footer = () => {
               <li><a href="#about" className="hover:text-[#d4af37] transition-colors">About Us</a></li>
               <li><a href="#partners" className="hover:text-[#d4af37] transition-colors">Partners</a></li>
               <li><a href="#contact" className="hover:text-[#d4af37] transition-colors">Contact</a></li>
-              <li><a href="#" className="hover:text-[#d4af37] transition-colors">Privacy Policy</a></li>
+              <li><a href="/privacy-policy" className="hover:text-[#d4af37]">Privacy Policy</a></li>
             </ul>
           </div>
 
@@ -58,9 +58,9 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-[#d4af37] shrink-0" />
-                <a href="https://wa.me/61212345678" target="_blank"  rel="noopener noreferrer"
+                <a href="https://wa.me/61419616922" target="_blank"  rel="noopener noreferrer"
     className="hover:text-[#d4af37] transition-colors cursor-pointer"
-  >+61 2 1234 5678</a>                
+  >+61 419 616 922</a>                
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-[#d4af37] shrink-0" />

@@ -1,33 +1,71 @@
 import React, { useEffect } from 'react';
-// 1. Import AOS and its CSS
+import { Routes, Route, useLocation } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-// Import your components
+// Import Pages/Components
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
+import About from './components/About';
 import GlobalNetwork from './components/GlobalNetwork';
 import Footer from './components/Footer';
-import About from './components/About';
+import PrivacyPolicy from './components/PrivacyPolicy';
+
+// Helper component to handle scroll on load
+const ScrollToHash = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      // Small timeout to ensure the element is rendered
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [hash]);
+
+  return null;
+};
+
+// Create a "Home" component that holds the main page sections
+const Home = () => (
+  <>
+   <div id="home"><Hero /></div>
+    <div id="services"><Services /></div>
+    <div id='about'><About /></div>
+    <div id="partners"><GlobalNetwork /></div>
+  </>
+);
 
 function App() {
-  // 2. Initialize AOS inside useEffect
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Animation speed (1000ms = 1s)
-      once: true,     // Animation happens only once (doesn't repeat on scroll up)
-      offset: 100,    // Trigger animation 100px before element is visible
+      duration: 1000,
+      once: true,
+      offset: 100,
     });
   }, []);
 
   return (
-    <div className="font-sans text-black-900 selection:bg-[#d4af37] selection:text-white overflow-x-hidden">
+    <div className="font-sans text-gray-900 selection:bg-[#d4af37] selection:text-white overflow-x-hidden">
+      {/* Header stays visible on all pages */}
       <Header />
-      <Hero />
-      <Services />
-      <About />
-      <GlobalNetwork />
+      <ScrollToHash />
+
+      <Routes>
+        {/* Route for the main homepage */}
+        <Route path="/" element={<Home />} />
+        
+        {/* Route for the Privacy Policy page */}
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      </Routes>
+
+      {/* Footer stays visible on all pages */}
       <Footer />
     </div>
   );

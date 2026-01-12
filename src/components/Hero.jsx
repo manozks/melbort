@@ -23,7 +23,7 @@ const Hero = () => {
           Melbote is the Australian arm of a pan-APAC technology leader, providing cutting-edge IT and digital consulting services to drive your business forward.
         </p>
         <div data-aos="zoom-in" data-aos-delay="400">
-          <a href="https://wa.me/61212345678"  target="_blank"  rel="noopener noreferrer"
+          <a href="https://wa.me/61419616922"  target="_blank"  rel="noopener noreferrer"
   className="bg-[#d4af37] hover:bg-[#b5952f] text-white font-semibold py-3 px-8 rounded-full shadow-md transition-colors duration-300 text-lg inline-block"
 >
   Get in Touch
