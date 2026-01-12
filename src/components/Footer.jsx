@@ -11,10 +11,10 @@ const Footer = () => {
       
     
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16"  data-aos="fade-up" data-aos-delay="100">
           
           {/* 1. Brand Column */}
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col items-start" >
             <a href="#" className="mb-6">
                   <img 
                            src={logo} 
