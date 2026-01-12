@@ -14,7 +14,7 @@ const PrivacyPolicy = () => {
       
       {/* --- HEADER SECTION --- */}
       <div className="bg-[#f9f9f9]  border-gray-200">
-        <div className="max-w-4xl mx-auto px-6 py-16 text-center">
+        <div className="max-w-4xl mx-auto px-6 py-16 text-center" data-aos="zoom-in" data-aos-delay="400" >
           <div className="inline-flex items-center justify-center p-3 bg-[#d4af37]/10 rounded-full mb-6">
             <ShieldCheck className="text-[#d4af37]" size={32} />
           </div>
@@ -30,7 +30,7 @@ const PrivacyPolicy = () => {
       <div className="bg-white rounded-[2rem] p-8 md:p-16 shadow-sm border border-[#e2e2e2] ">
         
         {/* Intro */}
-        <p className="text-lg text-gray-700 leading-relaxed mb-12">
+        <p className="text-lg text-gray-700 leading-relaxed mb-12" data-aos="fade-right">
           At <strong className="text-gray-900">Melbort</strong>, we respect your privacy and are committed to protecting your personal information. 
           This policy explains what data we collect, how we use it, and your rights regarding your personal information.
         </p>
@@ -38,7 +38,7 @@ const PrivacyPolicy = () => {
         <div className="space-y-12">
           
           {/* Section 1 */}
-          <section>
+          <section data-aos="fade-right">
             <h2 className="text-2xl font-serif font-bold text-gray-900 mb-4">1. What Personal Information We Collect</h2>
             <p className="text-gray-700 mb-4">We may collect:</p>
             <ul className="list-disc pl-5 space-y-2 text-gray-700 marker:text-[#d4af37]">
@@ -55,7 +55,7 @@ const PrivacyPolicy = () => {
           </section>
 
           {/* Section 2 */}
-          <section>
+          <section data-aos="fade-right">
             <h2 className="text-2xl font-serif font-bold text-gray-900 mb-4">2. How We Use Your Information</h2>
             <p className="text-gray-700 mb-4">We use your personal information to:</p>
             <ul className="list-disc pl-5 space-y-2 text-gray-700 marker:text-[#d4af37]">
@@ -70,7 +70,7 @@ const PrivacyPolicy = () => {
           </section>
 
           {/* Section 3 */}
-          <section>
+          <section data-aos="fade-right">
             <h2 className="text-2xl font-serif font-bold text-gray-900 mb-4">3. Sharing of Personal Data</h2>
             <p className="text-gray-700 leading-relaxed">
               We do not sell your personal information. We may share data with trusted service providers who support operations (hosting, analytics, CRM). Transfers outside Canada (e.g., to the U.S. or EU) are protected with <strong>Standard Contractual Clauses (SCCs)</strong>.
@@ -78,7 +78,7 @@ const PrivacyPolicy = () => {
           </section>
 
           {/* Section 4 */}
-          <section>
+          <section data-aos="fade-right">
             <h2 className="text-2xl font-serif font-bold text-gray-900 mb-4">4. Cookies & Tracking</h2>
             <p className="text-gray-700 mb-4">We use cookies to:</p>
             <ul className="list-disc pl-5 space-y-2 text-gray-700 marker:text-[#d4af37]">
@@ -92,7 +92,7 @@ const PrivacyPolicy = () => {
           </section>
 
           {/* Section 5 */}
-          <section>
+          <section data-aos="fade-right">
             <h2 className="text-2xl font-serif font-bold text-gray-900 mb-4">5. Your Privacy Rights</h2>
             <p className="text-gray-700 mb-4">As a Canadian resident (or under GDPR), you have the right to:</p>
             <ul className="list-disc pl-5 space-y-2 text-gray-700 marker:text-[#d4af37]">
@@ -113,7 +113,7 @@ const PrivacyPolicy = () => {
           </section>
 
           {/* Section 6 */}
-          <section>
+          <section data-aos="fade-right">
             <h2 className="text-2xl font-serif font-bold text-gray-900 mb-4">6. Data Security</h2>
             <ul className="list-disc pl-5 space-y-2 text-gray-700 marker:text-[#d4af37]">
               <li>SSL/TLS encryption</li>
@@ -126,7 +126,7 @@ const PrivacyPolicy = () => {
           </section>
 
           {/* Section 7 */}
-          <section>
+          <section data-aos="fade-right">
             <h2 className="text-2xl font-serif font-bold text-gray-900 mb-4">7. Data Retention</h2>
             <p className="text-gray-700 leading-relaxed">
               We retain personal data only as long as necessary for the purposes described or to comply with legal requirements. Once no longer needed, we securely delete or anonymize it.
@@ -134,7 +134,7 @@ const PrivacyPolicy = () => {
           </section>
 
           {/* Section 8 */}
-          <section>
+          <section data-aos="fade-right">
             <h2 className="text-2xl font-serif font-bold text-gray-900 mb-4">8. Children’s Privacy</h2>
             <p className="text-gray-700 leading-relaxed">
               Our services are intended for business users. We do not knowingly collect data from anyone under 16 years of age.
@@ -142,7 +142,7 @@ const PrivacyPolicy = () => {
           </section>
 
           {/* Section 9 */}
-          <section>
+          <section data-aos="fade-right">
             <h2 className="text-2xl font-serif font-bold text-gray-900 mb-4">9. Updates to This Policy</h2>
             <p className="text-gray-700 leading-relaxed">
               We may update this Privacy Policy from time to time. Significant changes will be communicated by email or website notice.
@@ -152,7 +152,7 @@ const PrivacyPolicy = () => {
         </div>
 
         {/* Back Button */}
-        <div className="mt-16 pt-8 border-t border-gray-100">
+        <div className="mt-16 pt-8 border-t border-gray-100" data-aos="fade-left">
           <a href="/" className="inline-flex items-center text-gray-600 hover:text-[#d4af37] font-medium transition-colors">
             <ArrowLeft size={20} className="mr-2" />
             Back to Home
