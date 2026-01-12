@@ -103,7 +103,7 @@ const PrivacyPolicy = () => {
               <li><strong>Receive a copy</strong> of your data in portable format</li>
             </ul>
             <div className="mt-6 p-4 bg-gray-50 rounded-lg border-l-4 border-[#d4af37]">
-              <p className="text-gray-900 font-medium">
+              <p className="text-gray-900 font-medium" data-aos="fade-right">
                 To exercise these rights, email us at: <br/>
                 <a href="mailto:hello@melbort.com" className="text-[#d4af37] hover:underline">
                   hello@melbort.com
