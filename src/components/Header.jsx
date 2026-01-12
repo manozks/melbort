@@ -48,7 +48,7 @@ const Header = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 p-4 pt-0">
-      <nav className="max-w-7xl mx-auto bg-white rounded-b-lg shadow-lg px-6 py-3 md:px-8 flex justify-between items-center transition-all duration-300">
+      <nav className="max-w-7xl mx-auto bg-white rounded-b-lg shadow-lg px-6 py-3 md:px-8 flex justify-between items-center transition-all duration-300" >
         
         {/* LOGO */}
         <div className="flex items-center">
@@ -58,7 +58,7 @@ const Header = () => {
         </div>
 
         {/* DESKTOP NAV */}
-        <div className="hidden md:flex items-center space-x-2">
+        <div className="hidden md:flex items-center space-x-2" data-aos="fade-right">
           {navLinks.map((link) => (
             <button
               key={link.name}
@@ -77,7 +77,7 @@ const Header = () => {
         </div>
 
         {/* BUTTONS */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4" data-aos="zoom-in" data-aos-delay="400">
           <a
             href="https://wa.me/61419616922"
             target="_blank"
