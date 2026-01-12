@@ -22,7 +22,7 @@ const Footer = () => {
                            className="h-[10] w-auto object-contain"
                          />
             </a>
-            <p className="text-gray-500 text-sm leading-relaxed mb-6">
+            <p className="text-black-600 text-sm leading-relaxed mb-6">
               Leading the digital transformation in Australia, powered by global technology excellence.
             </p>
           </div>
@@ -30,7 +30,7 @@ const Footer = () => {
           {/* 2. Information Links */}
           <div>
             <h5 className="font-bold text-gray-900 mb-6">Information</h5>
-            <ul className="space-y-4 text-sm text-gray-600">
+            <ul className="space-y-4 text-sm text-black-600">
               <li><a href="#services" className="hover:text-[#d4af37] transition-colors">Home</a></li>
               <li><a href="#services" className="hover:text-[#d4af37] transition-colors">Services</a></li>
               <li><a href="#about" className="hover:text-[#d4af37] transition-colors">About Us</a></li>
@@ -51,7 +51,7 @@ const Footer = () => {
       </div>
            <div className="relative z-10">
              <h5 className="font-bold text-gray-900 mb-6">Contact Us</h5>
-            <ul className="space-y-4 text-sm text-gray-600">
+            <ul className="space-y-4 text-sm text-black-600">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-[#d4af37] mt-1 shrink-0" />
                 <span>Level 1, 123 Digital Drive<br/>Sydney, NSW 2000<br/>Australia</span>
@@ -73,7 +73,7 @@ const Footer = () => {
           {/* 4. Inquiries */}
           <div>
             <h5 className="font-bold text-gray-900 mb-6">Inquiries</h5>
-            <p className="text-gray-500 text-sm mb-6 leading-relaxed">
+            <p className="text-black-600 text-sm mb-6 leading-relaxed">
               Feel free to reach out to us for any consulting needs or partnership opportunities.
             </p>
             <button className="bg-[#d4af37] hover:bg-[#b5952f] text-white font-bold py-3 px-10 rounded-full shadow-sm transition-all duration-300 transform hover:scale-105">
@@ -84,7 +84,7 @@ const Footer = () => {
 
         {/* Bottom Copyright Line */}
         <div className="border-t border-gray-200 pt-4 text-center">
-          <p className="text-xs text-gray-400">
+          <p className="text-xs text-gray-600">
             © 2026 Melbote. All rights reserved. A subsidiary of a pan-APAC technology leader.
           </p>
         </div>

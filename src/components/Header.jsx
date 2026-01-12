@@ -13,8 +13,8 @@ const Header = () => {
   const navLinks = [
     { name: 'Home', type: 'link', target: '/' },
     { name: 'Services', type: 'scroll', target: 'services' },
-    { name: 'About Us', type: 'scroll', target: 'about' },    // Make sure you have id="about" somewhere
-    { name: 'Partners', type: 'scroll', target: 'partners' }, // Make sure you have id="partners" somewhere
+    { name: 'About Us', type: 'scroll', target: 'about' },   
+    { name: 'Partners', type: 'scroll', target: 'partners' }, 
     { name: 'Contact Us', type: 'scroll', target: 'contact' },
   ];
 
@@ -66,8 +66,8 @@ const Header = () => {
               className={`px-5 py-1.5 text-sm font-medium transition-all duration-300 rounded-full cursor-pointer
                 ${
                   activeLink === link.name
-                    ? 'text-gray-900 border border-gray-200 shadow-sm bg-gray-50' 
-                    : 'text-gray-600 hover:text-[#d4af37] border border-transparent'
+                    ? 'text-black border border-gray-200 shadow-sm bg-gray-50' 
+                    : 'text-black hover:text-[#d4af37] border border-transparent'
                 }
               `}
             >
