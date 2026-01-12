@@ -26,7 +26,8 @@ const PrivacyPolicy = () => {
       </div>
 
       {/* --- CONTENT SECTION --- */}
-      <div className="max-w-6xl mx-auto  bg-white rounded-[2rem] p-8 md:p-16 shadow-sm border border-[#e2e2e2] ">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 pb-16">
+      <div className="bg-white rounded-[2rem] p-8 md:p-16 shadow-sm border border-[#e2e2e2] ">
         
         {/* Intro */}
         <p className="text-lg text-gray-700 leading-relaxed mb-12">
@@ -159,6 +160,7 @@ const PrivacyPolicy = () => {
         </div>
         
       </div>
+    </div>
     </div>
   );
 };
