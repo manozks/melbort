@@ -3,7 +3,7 @@ import heroBg from '../assets/hero-bg.png';
 
 const Hero = () => {
    return (
-    <section className="relative bg-[#f9f9f9] pt-24 pb-24 md:pt-32 md:pb-32 overflow-hidden">
+    <section id="home" className="relative bg-[#f9f9f9] pt-24 pb-24 md:pt-32 md:pb-32 overflow-hidden">
       {/* Background Map Image */}
       <div className="absolute inset-0 flex items-center justify-center opacity-100 pointer-events-none">
         {/* 2. USE THE VARIABLE HERE */}

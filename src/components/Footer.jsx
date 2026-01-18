@@ -32,7 +32,7 @@ const Footer = () => {
           <div>
             <h5 className="font-bold text-gray-900 mb-6">Information</h5>
             <ul className="space-y-4 text-sm text-black-600">
-              <li><Link to="/" className="hover:text-[#d4af37] transition-colors">Home</Link></li>
+              <li><Link to="/#home" className="hover:text-[#d4af37] transition-colors">Home</Link></li>
               <li><Link to="/#services" className="hover:text-[#d4af37] transition-colors">Services</Link></li>
               <li><Link to="/#about" className="hover:text-[#d4af37] transition-colors">About Us</Link></li>
               <li><Link to="/#partners" className="hover:text-[#d4af37] transition-colors">Partners</Link></li>
