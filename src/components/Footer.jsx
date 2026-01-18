@@ -2,6 +2,7 @@ import React from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
 import logo from '../assets/logo.png';
 import footerBg from '../assets/footer-bg.png';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -15,13 +16,13 @@ const Footer = () => {
           
           {/* 1. Brand Column */}
           <div className="flex flex-col items-start" >
-            <a href="#" className="mb-6">
+            <Link href="#" className="mb-6">
                   <img 
                            src={logo} 
                            alt="Melbote Logo" 
                            className="h-[10] w-auto object-contain"
                          />
-            </a>
+            </Link>
             <p className="text-black-600 text-sm leading-relaxed mb-6">
               Leading the digital transformation in Australia, powered by global technology excellence.
             </p>
@@ -31,12 +32,12 @@ const Footer = () => {
           <div>
             <h5 className="font-bold text-gray-900 mb-6">Information</h5>
             <ul className="space-y-4 text-sm text-black-600">
-              <li><a href="#services" className="hover:text-[#d4af37] transition-colors">Home</a></li>
-              <li><a href="#services" className="hover:text-[#d4af37] transition-colors">Services</a></li>
-              <li><a href="#about" className="hover:text-[#d4af37] transition-colors">About Us</a></li>
-              <li><a href="#partners" className="hover:text-[#d4af37] transition-colors">Partners</a></li>
-              <li><a href="#contact" className="hover:text-[#d4af37] transition-colors">Contact</a></li>
-              <li><a href="/privacy-policy" className="hover:text-[#d4af37]">Privacy Policy</a></li>
+              <li><Link to="/" className="hover:text-[#d4af37] transition-colors">Home</Link></li>
+              <li><Link to="/#services" className="hover:text-[#d4af37] transition-colors">Services</Link></li>
+              <li><Link to="/#about" className="hover:text-[#d4af37] transition-colors">About Us</Link></li>
+              <li><Link to="/#partners" className="hover:text-[#d4af37] transition-colors">Partners</Link></li>
+              <li><Link to="/#contact" className="hover:text-[#d4af37] transition-colors">Contact</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-[#d4af37]">Privacy Policy</Link></li>
             </ul>
           </div>
 
