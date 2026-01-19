@@ -67,10 +67,10 @@ const ContactForm = () => {
     };
 
     emailjs.send(
-      'service_nxw4pfs',   // Replace with your Service ID
-      'template_py5zvm9',  // Replace with your Template ID
+      'YOUR_SERVICE_ID',   // Replace with your Service ID
+      'YOUR_TEMPLATE_ID',  // Replace with your Template ID
       templateParams,
-      'vAQ3RHzfLYkVKpSNt'    // Replace with your Public Key
+      'YOUR_PUBLIC_KEY'    // Replace with your Public Key
     )
     .then((response) => {
       console.log('SUCCESS!', response.status, response.text);
