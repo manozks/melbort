@@ -68,16 +68,16 @@ const ContactForm = () => {
 
     // DEBUG LOG: Check keys in console before sending
     console.log("Sending Email with:", {
-      service: 'service_2z14fex',
-      template: 'template_oo51p9q',
-      key: 'TyHCIJzhmvykmXzwo'
+      service: 'service_gcpn6g6',
+      template: 'template_b19t9ij',
+      key: '_cUVxtjKbraEo34SL'
     });
 
     emailjs.send(
-      'service_2z14fex',     // Service ID (Double check this matches your dashboard exactly)
-      'template_oo51p9q',    // Template ID
+      'service_gcpn6g6',     // Service ID (Double check this matches your dashboard exactly)
+      'template_b19t9ij',    // Template ID
       templateParams,
-      'TyHCIJzhmvykmXzwo'    // Public Key
+      '_cUVxtjKbraEo34SL'    // Public Key
     )
     .then((response) => {
       console.log('SUCCESS!', response.status, response.text);
