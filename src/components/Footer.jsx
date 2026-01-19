@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Send, X, ArrowRight, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import emailjs from '@emailjs/browser'; // 1. Import EmailJS
+import emailjs from '@emailjs/browser';
+emailjs.init("TyHCIJzhmvykmXzwo"); // Your Public Key
 import logo from '../assets/logo.png';
 import footerBg from '../assets/footer-bg.png';
 
@@ -34,7 +35,7 @@ const ContactForm = () => {
     if (errors[id]) setErrors((prev) => ({ ...prev, [id]: '' }));
   };
 
-  const handleSubmit = (e) => {
+ const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = {};
 
@@ -57,7 +58,6 @@ const ContactForm = () => {
     // --- EMAIL SENDING LOGIC ---
     setIsLoading(true);
 
-    // Prepare the data to match your EmailJS Template variables
     const templateParams = {
       from_name: formData.name,
       from_email: formData.email,
@@ -66,11 +66,18 @@ const ContactForm = () => {
       message: formData.message,
     };
 
+    // DEBUG LOG: Check keys in console before sending
+    console.log("Sending Email with:", {
+      service: 'service_2z14fex',
+      template: 'template_oo51p9q',
+      key: 'TyHCIJzhmvykmXzwo'
+    });
+
     emailjs.send(
-      'service_2z14fex',   // Replace with your Service ID
-      'template_oo51p9q',  // Replace with your Template ID
+      'service_2z14fex',     // Service ID (Double check this matches your dashboard exactly)
+      'template_oo51p9q',    // Template ID
       templateParams,
-      'TyHCIJzhmvykmXzwo'    // Replace with your Public Key
+      'TyHCIJzhmvykmXzwo'    // Public Key
     )
     .then((response) => {
       console.log('SUCCESS!', response.status, response.text);
@@ -78,9 +85,10 @@ const ContactForm = () => {
       setIsSubmitted(true);
     })
     .catch((err) => {
-      console.log('FAILED...', err);
+      console.error('FAILED...', err);
       setIsLoading(false);
-      alert('Failed to send message. Please try again later.');
+      // Alert the actual error text to help debugging
+      alert(`Failed to send: ${err.text || 'Unknown Error'}`); 
     });
   };
 
