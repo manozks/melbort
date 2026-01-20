@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MapPin, Phone, Mail, X, ArrowRight, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import emailjs from '@emailjs/browser';
 import logo from '../assets/logo.png';
 import footerBg from '../assets/footer-bg.png';
 
@@ -31,7 +30,6 @@ const ContactModal = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     if (!isOpen) {
-      // Reset when closed
       setTimeout(() => {
         setIsSubmitted(false);
         setErrors({});
@@ -46,7 +44,7 @@ const ContactModal = ({ isOpen, onClose }) => {
     if (errors[id]) setErrors((prev) => ({ ...prev, [id]: '' }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
 
@@ -57,8 +55,6 @@ const ContactModal = ({ isOpen, onClose }) => {
     } else if (!validateEmail(formData.email)) {
       newErrors.email = 'Please enter a valid email';
     }
-    // Optional fields can be skipped if you prefer
-    if (!formData.interested) newErrors.interested = 'Please select an option';
     if (!formData.message.trim()) newErrors.message = 'Message is required';
 
     if (Object.keys(newErrors).length > 0) {
@@ -68,47 +64,54 @@ const ContactModal = ({ isOpen, onClose }) => {
 
     setIsLoading(true);
 
-    const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
-      company: formData.company,
-      interested_in: formData.interested,
-      message: formData.message,
-    };
+    // --- WEB3FORMS SUBMISSION LOGIC ---
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          // 🔴 REPLACE THIS WITH YOUR ACCESS KEY FROM STEP 1
+          access_key: "9d740cf6-0829-4cc2-8a01-9497a8f56628", 
+          
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          subject: `New Inquiry from ${formData.name} - ${formData.interested}`, // Email Subject
+          interested_in: formData.interested,
+          message: formData.message,
+        }),
+      });
 
-    emailjs.send(
-      'service_yglitrg',     // Service ID 
-      'template_alt0xyd',    // Template ID
-      templateParams,
-      '_cUVxtjKbraEo34SL'    // Public Key (Make sure this matches Account > Public Key)
-    )
-    .then((response) => {
-      console.log('SUCCESS!', response.status, response.text);
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitted(true);
+      } else {
+        alert("Something went wrong. Please try again.");
+        console.error("Web3Forms Error:", result);
+      }
+    } catch (error) {
+      alert("Failed to send message. Please check your connection.");
+      console.error("Fetch Error:", error);
+    } finally {
       setIsLoading(false);
-      setIsSubmitted(true);
-    })
-    .catch((err) => {
-      console.error('FAILED...', err);
-      setIsLoading(false);
-      // Detailed error for debugging
-      alert(`Failed to send. Error: ${err.text || 'Account not found (Check Public Key)'}`); 
-    });
+    }
   };
 
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-      {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" 
         onClick={onClose}
       ></div>
 
-      {/* Modal Card */}
       <div className="relative bg-white rounded-[2rem] shadow-2xl w-full max-w-sm overflow-hidden transform transition-all animate-fade-in-up min-h-[500px] flex flex-col">
         
-        {/* Close Icon */}
         <button 
           onClick={onClose} 
           className={`absolute top-5 right-5 z-20 transition-colors ${isSubmitted ? 'text-white/70 hover:text-white' : 'text-gray-400 hover:text-gray-900'}`}
@@ -117,8 +120,8 @@ const ContactModal = ({ isOpen, onClose }) => {
         </button>
 
         {isSubmitted ? (
-          // --- SUCCESS STATE (Blue Card - image_3df40b) ---
-          <div className="bg-[#3b41e8] text-white p-8 h-full flex flex-col justify-between flex-grow">
+          // --- SUCCESS STATE (Blue Card) ---
+          <div className="bg-[#d4af37] text-white p-8 h-full flex flex-col justify-between flex-grow">
             <div className="mt-12">
               <h2 className="text-5xl font-bold leading-tight tracking-tight">
                 Thank<br/>You.
@@ -136,7 +139,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                   className="flex items-center gap-3 text-sm font-bold uppercase tracking-widest hover:opacity-80 transition-opacity"
                 >
                   Next 
-                  <div className="bg-[#1a1f9c] p-2 rounded-full">
+                  <div className="bg-[#d4af37] p-2 rounded-full">
                     <ArrowRight size={16} />
                   </div>
                 </button>
@@ -144,7 +147,7 @@ const ContactModal = ({ isOpen, onClose }) => {
             </div>
           </div>
         ) : (
-          // --- FORM STATE (White Form - image_fa9603) ---
+          // --- FORM STATE (White Form) ---
           <div className="p-8 h-full flex flex-col flex-grow">
             <h2 className="text-2xl font-bold text-gray-900 mb-8 mt-2">Get in touch</h2>
             
@@ -152,12 +155,12 @@ const ContactModal = ({ isOpen, onClose }) => {
               
               <div className="space-y-5">
                 {/* Name */}
-                <div className="relative border-b border-gray-200 focus-within:border-[#3b41e8] transition-colors pb-1">
+                <div className="relative border-b border-gray-200 focus-within:border-[#d4af37] transition-colors pb-1">
                   <label className="block text-xs text-gray-500 font-medium mb-1">Name</label>
                   <input 
                     type="text" id="name" value={formData.name} onChange={handleChange}
                     className="w-full outline-none text-gray-900 font-medium bg-transparent text-sm placeholder-gray-300"
-                    placeholder="Jane Doe"
+                    placeholder="Manish Rijal"
                   />
                 </div>
 
@@ -167,7 +170,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                   <input 
                     type="email" id="email" value={formData.email} onChange={handleChange}
                     className="w-full outline-none text-gray-900 font-medium bg-transparent text-sm placeholder-gray-300"
-                    placeholder="jane@example.com"
+                    placeholder="manish@example.com"
                   />
                 </div>
 
@@ -182,7 +185,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                 </div>
 
                 {/* Interested In */}
-                <div className="relative border-b border-gray-200 focus-within:border-[#3b41e8] transition-colors pb-1">
+                <div className="relative border-b border-gray-200 focus-within:border-[#d4af37] transition-colors pb-1">
                   <label className="block text-xs text-gray-500 font-medium mb-1">Interested in...</label>
                   <select 
                     id="interested" value={formData.interested} onChange={handleChange}
@@ -193,14 +196,13 @@ const ContactModal = ({ isOpen, onClose }) => {
                     <option value="Mobile App">Mobile App</option>
                     <option value="Software">Software Development</option>
                   </select>
-                  {/* Custom Arrow */}
                   <div className="absolute right-0 bottom-2 pointer-events-none">
                      <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                   </div>
                 </div>
 
                 {/* Message */}
-                <div className="relative border-b border-gray-200 focus-within:border-[#3b41e8] transition-colors pb-1">
+                <div className="relative border-b border-gray-200 focus-within:border-[#d4af37] transition-colors pb-1">
                   <label className="block text-xs text-gray-500 font-medium mb-1">Message</label>
                   <textarea 
                     id="message" rows="2" value={formData.message} onChange={handleChange}
@@ -210,13 +212,13 @@ const ContactModal = ({ isOpen, onClose }) => {
                 </div>
               </div>
 
-              {/* Send Button (Bottom Right) */}
+              {/* Send Button */}
               <div className="flex justify-end pt-4 items-center gap-3">
-                <span className="text-xs font-bold text-[#3b41e8] tracking-widest uppercase">Send</span>
+                <span className="text-xs font-bold text-[#d4af37] tracking-widest uppercase">Send</span>
                 <button 
                   type="submit" 
                   disabled={isLoading}
-                  className="bg-[#3b41e8] hover:bg-[#2c33c4] text-white rounded-full p-3 shadow-lg transition-all transform hover:scale-105 disabled:opacity-50 disabled:scale-100 flex items-center justify-center w-12 h-12"
+                  className="bg-[#d4af37] hover:bg-[#b89a2d] text-white rounded-full p-3 shadow-lg transition-all transform hover:scale-105 disabled:opacity-50 disabled:scale-100 flex items-center justify-center w-12 h-12"
                 >
                   {isLoading ? <Loader2 size={20} className="animate-spin" /> : <Mail size={20} />}
                 </button>
@@ -235,7 +237,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer id="contact" className="bg-[#f9f9f9] pt-20 pb-12 border-t border-[#e2e2e2] relative overflow-hidden">
+      <footer id="contact" className="bg-[#f9f9f9] pt-8 pb-4 border-t border-[#e2e2e2] relative overflow-hidden">
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16" data-aos="fade-up" data-aos-delay="100">
@@ -247,7 +249,7 @@ const Footer = () => {
               </div>
               <div className="relative z-10 w-full">
                 <div className="mb-6">
-                   <Link to="/" className="inline-block"><img src={logo} alt="Melbote Logo" className="h-10 w-auto object-cover"/></Link>
+                   <Link to="/" className="inline-block"><img src={logo} alt="Melbote Logo" className="h-[10] w-auto object-cover"/></Link>
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed mb-6 max-w-xs">Leading the digital transformation in Australia, powered by global technology excellence.</p>
               </div>
@@ -267,7 +269,7 @@ const Footer = () => {
             </div>
 
             {/* 3. Contact Details */}
-            <div className="relative z-10">
+           <div className="relative z-10">
              <h5 className="font-bold text-gray-900 mb-6">Contact Us</h5>
             <ul className="space-y-4 text-sm text-black-600">
               <li className="flex items-start gap-3">
@@ -302,13 +304,12 @@ const Footer = () => {
               </button>
             </div>
           </div>
-          <div className="border-t border-gray-200 pt-8 text-center">
+          <div className="border-t border-gray-200 pt-4 text-center">
             <p className="text-xs text-gray-600">© 2026 Melbote. All rights reserved. A subsidiary of a pan-APAC technology leader.</p>
           </div>
         </div>
       </footer>
 
-      {/* RENDER MODAL */}
       <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
