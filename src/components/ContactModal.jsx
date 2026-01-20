@@ -139,7 +139,7 @@ const ContactModal = ({ isOpen, onClose }) => {
 
                 {/* Interested In */}
                 <div className="relative border-b border-gray-200 focus-within:border-[#d4af37] transition-colors pb-1">
-                  <label className="block text-xs text-gray-500 font-medium mb-1">Interested in...</label>
+                  <label className="block text-xs text-gray-500 font-medium mb-1">What type of project do you need?</label>
                   <select 
                     id="interested" value={formData.interested} onChange={handleChange}
                     className="w-full outline-none text-gray-900 font-medium bg-transparent text-sm cursor-pointer appearance-none"
