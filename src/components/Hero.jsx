@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import heroBg from '../assets/hero-bg.png'; 
+import ContactModal from './ContactModal';
 
 const Hero = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
    return (
     <section id="home" className="relative bg-[#f9f9f9] pt-24 pb-24 md:pt-32 md:pb-32 overflow-hidden">
       {/* Background Map Image */}
@@ -23,13 +26,16 @@ const Hero = () => {
           Melbote is the Australian arm of a pan-APAC technology leader, providing cutting-edge IT and digital consulting services to drive your business forward.
         </p>
         <div data-aos="zoom-in" data-aos-delay="400">
-          <a href="https://wa.me/61419616922"  target="_blank"  rel="noopener noreferrer"
-  className="bg-[#d4af37] hover:bg-[#b5952f] text-white font-semibold py-3 px-8 rounded-full shadow-md transition-colors duration-300 text-lg inline-block"
->
-  Get in Touch
-</a>
+          <button 
+                onClick={() => setIsModalOpen(true)}
+                className="bg-[#d4af37] hover:bg-[#b5952f] text-white font-bold py-3 px-8 rounded-full shadow-md transition-all duration-300 transform hover:scale-105"
+              >
+                Get in Touch
+              </button>
         </div>
       </div>
+      {/* 5. ADD MODAL AT THE BOTTOM */}
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 };
